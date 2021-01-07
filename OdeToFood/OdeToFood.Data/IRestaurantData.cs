@@ -12,6 +12,7 @@ namespace OdeToFood.Data
         Restaurant GetById(int Id);
         Restaurant Update(Restaurant updatedRestaurant);
         Restaurant Add(Restaurant newRestaurant);
+        Restaurant Delete(int id);
         int Commit();
     }
 
@@ -33,6 +34,18 @@ namespace OdeToFood.Data
         {
             return 0;
         }
+
+
+        public Restaurant Delete(int id)
+        {
+            var restaurant = restaurants.FirstOrDefault(r => r.Id == id);
+            if(restaurant !=null)
+            {
+                restaurants.Remove(restaurant);
+            }
+            return restaurant;
+        }
+
 
         public Restaurant Add(Restaurant newRestaurant) 
         {
@@ -66,5 +79,7 @@ namespace OdeToFood.Data
                    orderby r.Name
                    select r;
         }
+
+
     }
 }
