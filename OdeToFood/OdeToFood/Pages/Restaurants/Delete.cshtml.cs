@@ -44,7 +44,7 @@ namespace OdeToFood.Pages.Restaurants
             }
 
             TempData["Message"] = $"{restaurant.Name} has been deleted";
-            return RedirectToPage("./LIst");
+            return RedirectToPage("./List");
         }
     }
 }
